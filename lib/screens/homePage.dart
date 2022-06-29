@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_app/widgets/inputWidget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Color(0xff031F2B),
       body: Center(
         child: Center(
@@ -32,19 +35,23 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(height: 10,),
                           Text('Let’s Travel',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.w600
-                              ),
+                              style: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    letterSpacing: 1,
+                                    fontWeight: FontWeight.w600
+                                ),
+                              )
                           )
                         ],
                       ),
                       Expanded(child: Container()),
                       Image(image: AssetImage('assets/account_img.png'))
                     ],
-                  )
+                  ),
+                  InputPage(),
+
 
                 ],
               ),
