@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelling_app/widgets/inputWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travelling_app/widgets/slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,14 +14,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Color(0xff031F2B),
-      body: Center(
-        child: Center(
-          child: Container(
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(vertical: 34,horizontal: 32),
-            child: SafeArea(
+      body: Column(
+        children: [
+          SafeArea(
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(top: 32,left: 24,right: 24),
               child: Column(
                 children: [
                   Row(
@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Hello. Hazar ',style: TextStyle(
+                          Text('Hello. s',style: TextStyle(
                               color: Color(0xffD6D2D2),
                             fontSize: 12,
                             ),
@@ -51,13 +51,24 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   InputPage(),
-
-
                 ],
               ),
             ),
           ),
-        ),
+         Container(
+           height: 35,
+           child: ListView(
+             scrollDirection: Axis.horizontal,
+             children:[ Row(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [ ListItem(),
+                 ListItem(),ListItem(),
+                 ListItem(),ListItem(),
+                 ListItem()],
+             ),]
+           ),
+         ),
+        ],
       ),
     );
   }

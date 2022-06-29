@@ -8,6 +8,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +17,7 @@ class _InputPageState extends State<InputPage> {
       child: TextField(
         style: TextStyle(color: Colors.white,fontSize: 18),
         decoration: InputDecoration(
-          hintText: 'Temukan Liburan Anda',
+          hintText: 'Temukan Liburan',
           hintStyle: TextStyle(
             decoration: TextDecoration.none,
             fontSize: 16,
