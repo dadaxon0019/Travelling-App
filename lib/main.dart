@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelling_app/screens/homePage.dart';
+import 'package:travelling_app/screens/loginPage.dart';
 
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins'
         ),
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: LoginPage(),
       ),
     );
   }
