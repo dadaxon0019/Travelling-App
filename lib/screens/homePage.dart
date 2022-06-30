@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_app/widgets/imagesSlider.dart';
 import 'package:travelling_app/widgets/inputWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelling_app/widgets/slider.dart';
@@ -11,6 +12,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final List<String> namesTrips = ['Sea Diving','Beach Adventure','Uzbekistan',];
+  final List<String> descriptionTrips = ['11 km boat','51 km away','1444km away',];
+  final List<String> imgUrl = ['assets/images_slider_1.png','assets/images_slider_2.png','assets/images_slider_3.png'];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +93,23 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          SizedBox(height: 16,),
+          Container(
+            height: 178,
+            child: Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: namesTrips.length,
+                itemBuilder: (BuildContext context,int index){
+                  return ImageSLider(
+                    nameTrip: namesTrips[index],
+                    description: descriptionTrips[index],
+                    imgUrl:  imgUrl[index],
+                  );
+                },
+              ),
+            ),
+          )
 
         ],
       ),
