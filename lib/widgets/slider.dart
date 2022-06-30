@@ -37,7 +37,7 @@ class _ItemView extends State<ListItem>{
                ),
                child: Padding(
                  padding: const EdgeInsets.all(9),
-                 child: Text('name',
+                 child: Text('Mountain',
                    style: TextStyle(
                        color: isFavorite ? Colors.white : Color(0xff263238),
                        fontSize: 14,

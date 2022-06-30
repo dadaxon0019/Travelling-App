@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:travelling_app/JsonParse/JsonParseDemo.dart';
 import 'package:travelling_app/screens/homePage.dart';
 
 
@@ -15,6 +14,9 @@ class MyApp extends StatelessWidget {
       onTap: () =>
           WidgetsBinding.instance.focusManager.primaryFocus?.unfocus(),
       child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: 'Poppins'
+        ),
         debugShowCheckedModeBanner: false,
         home: HomePage(),
       ),
