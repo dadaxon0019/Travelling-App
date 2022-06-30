@@ -25,6 +25,8 @@ class _HomePageState extends State<HomePage> {
     "email": "john@example.com"
   };
 
+  bool starIsDone1 = true;
+  bool starIsDone2 = true;
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                             Column(
                               children: [
                                 Text(
-                                    'Mount Bromo',
+                                  'Mount Bromo',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize:13,
@@ -174,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 SizedBox(height: 5,),
                                 Text(
-                                    '5 km away',
+                                  '5 km away',
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize:11,
@@ -185,15 +187,21 @@ class _HomePageState extends State<HomePage> {
                             Row(
                               children: [
                                 Text(
-                                    '4.7',
+                                  '4.7',
                                   style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:17,
-                                    fontWeight: FontWeight.w500
+                                      color: Colors.white,
+                                      fontSize:17,
+                                      fontWeight: FontWeight.w500
                                   ),
                                 ),
                                 SizedBox(width: 10,),
-                                Icon(Icons.star,color: Color(0xffE58F3F),size: 20,)
+                                InkWell(
+                                  onTap: (){
+                                      starIsDone1 = !starIsDone1;
+                                      this.setState(() {
+                                      });
+                                  },
+                                    child:starIsDone1 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 24,):Icon(Icons.star_border_outlined,color: Color(0xffE58F3F),size: 24,))
                               ],
                             )
                           ],
@@ -269,7 +277,13 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                                 SizedBox(width: 10,),
-                                Icon(Icons.star,color: Color(0xffE58F3F),size: 20,)
+                                InkWell(
+                                    onTap: (){
+                                      starIsDone2 = !starIsDone2;
+                                      this.setState(() {
+                                      });
+                                    },
+                                    child:starIsDone2 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 24,):Icon(Icons.star_border_outlined,color: Color(0xffE58F3F),size: 24,))
                               ],
                             )
                           ],
