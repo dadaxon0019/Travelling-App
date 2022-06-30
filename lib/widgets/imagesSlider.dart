@@ -15,7 +15,7 @@ class ImageSLider extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10)
       ),
-      margin: EdgeInsets.only(left: 24,),
+      margin: EdgeInsets.only(right: 24,),
       width: 123,
       height: 180,
       child: Stack(

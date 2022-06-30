@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_app/JsonParse/JsonParseDemo.dart';
 import 'package:travelling_app/screens/homePage.dart';
-import 'package:travelling_app/widgets/slider.dart';
 
 
 void main() {
