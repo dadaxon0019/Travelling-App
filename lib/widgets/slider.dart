@@ -5,8 +5,17 @@ class ListItem extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _ItemView();
 }
+class trips{
+  final name;
+  trips({this.name});
+}
+
 class _ItemView extends State<ListItem>{
   bool isFavorite = true;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return
@@ -28,8 +37,7 @@ class _ItemView extends State<ListItem>{
                ),
                child: Padding(
                  padding: const EdgeInsets.all(9),
-                 child: Text(
-                   'Mountain',
+                 child: Text('name',
                    style: TextStyle(
                        color: isFavorite ? Colors.white : Color(0xff263238),
                        fontSize: 14,

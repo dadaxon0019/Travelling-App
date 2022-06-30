@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
          Container(
+           padding: EdgeInsets.only(left: 24),
            height: 35,
            child: ListView(
              scrollDirection: Axis.horizontal,
@@ -68,6 +69,24 @@ class _HomePageState extends State<HomePage> {
              ),]
            ),
          ),
+          SizedBox(height: 32,),
+          Padding(
+            padding: const EdgeInsets.only(left: 24),
+            child: Row(
+              children: [
+                Text(
+                  'Popular Experiences',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 0.6
+                  ),
+                ),
+              ],
+            ),
+          ),
+
         ],
       ),
     );
