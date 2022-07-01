@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:travelling_app/widgets/bigSlider.dart';
+import 'package:travelling_app/screens/aboutPage.dart';
 import 'package:travelling_app/widgets/imagesSlider.dart';
 import 'package:travelling_app/widgets/inputWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelling_app/widgets/slider.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -211,86 +210,98 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SizedBox(height: 16,),
-                Stack(
-                  children: [
-                    Container(
-                      clipBehavior: Clip.hardEdge,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10)
+                InkWell(
+                  onTap: (){
+                    Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (c, a1, a2) => AboutPage(),
+                        transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                        transitionDuration: Duration(milliseconds: 1500),
                       ),
-                      width: double.infinity,
-                      height: 133,
-                      child: Image(
-                        image: AssetImage('assets/images_slider_4.png'),fit: BoxFit.cover,
-                      ),
-                    ),
-                    Container(
-                      height: 133,
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              colors: [
-                                Colors.black.withOpacity(0.5),
-                                Colors.white.withOpacity(0.0)
-                              ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter
-                          )
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 16,
-                      right: 16,
-                      left: 16,
-                      child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Column(
-                              children: [
-                                Text(
-                                  'Mount Bromo',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize:13,
-                                      fontWeight: FontWeight.w600
-                                  ),
-                                ),
-                                SizedBox(height: 5,),
-                                Text(
-                                  '5 km away',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize:11,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  '4.7',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize:17,
-                                      fontWeight: FontWeight.w500
-                                  ),
-                                ),
-                                SizedBox(width: 10,),
-                                InkWell(
-                                    onTap: (){
-                                      starIsDone2 = !starIsDone2;
-                                      this.setState(() {
-                                      });
-                                    },
-                                    child:starIsDone2 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 24,):Icon(Icons.star_border_outlined,color: Color(0xffE58F3F),size: 24,))
-                              ],
-                            )
-                          ],
+                    );
+                  },
+                  child: Stack(
+                    children: [
+                      Container(
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10)
+                        ),
+                        width: double.infinity,
+                        height: 133,
+                        child: Image(
+                          image: AssetImage('assets/images_slider_4.png'),fit: BoxFit.cover,
                         ),
                       ),
-                    ),
-                  ],
+                      Container(
+                        height: 133,
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                colors: [
+                                  Colors.black.withOpacity(0.5),
+                                  Colors.white.withOpacity(0.0)
+                                ],
+                                begin: Alignment.bottomCenter,
+                                end: Alignment.topCenter
+                            )
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 16,
+                        right: 16,
+                        left: 16,
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Column(
+                                children: [
+                                  Text(
+                                    'Mount Bromo',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:13,
+                                        fontWeight: FontWeight.w600
+                                    ),
+                                  ),
+                                  SizedBox(height: 5,),
+                                  Text(
+                                    '5 km away',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize:11,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    '4.7',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize:17,
+                                        fontWeight: FontWeight.w500
+                                    ),
+                                  ),
+                                  SizedBox(width: 10,),
+                                  InkWell(
+                                      onTap: (){
+                                        starIsDone2 = !starIsDone2;
+                                        this.setState(() {
+                                        });
+                                      },
+                                      child:starIsDone2 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 24,):Icon(Icons.star_border_outlined,color: Color(0xffE58F3F),size: 24,))
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
 
               ],

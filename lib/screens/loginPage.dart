@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelling_app/screens/homePage.dart';
 
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -37,7 +38,7 @@ class LoginPage extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 174,),
+            SizedBox(height: 157,),
             Column(
               children: [
                 Container(
@@ -82,10 +83,17 @@ class LoginPage extends StatelessWidget {
                         primary:Color(0xff031F2B),
                       ),
                       onPressed: (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder:(contex)=> HomePage()));
+                        Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (c, a1, a2) => HomePage(),
+                            transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                            transitionDuration: Duration(milliseconds: 1500),
+                          ),
+                        );
                       },
                       child: Text(
-                          'Get Started',
+                          'Log In',
                           style:TextStyle(
                               fontSize: 14,
                               color: Color(0xff5EDFFF)
