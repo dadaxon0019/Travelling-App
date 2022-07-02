@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelling_app/screens/homePage.dart';
 import 'package:travelling_app/screens/loginPage.dart';
+import 'package:video_player/video_player.dart';
 
 
 class AboutPage extends StatefulWidget {
@@ -11,6 +12,9 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
+
+ bool videoOn = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,12 +28,19 @@ class _AboutPageState extends State<AboutPage> {
                 Container(
                   width: double.infinity,
                   height: 370,
-                  child:Image(image: AssetImage('assets/about_img_1.png'),fit: BoxFit.cover,),
-                  ),
+                  child: videoOn ? Image(image: AssetImage('assets/about_img_1.png'),fit: BoxFit.cover,):
+                  VideoApp()),
                 Padding(
                   padding: const EdgeInsets.only(top: 58.0),
                   child: IconButton(
-                    onPressed: (){
+                    onPressed: (){Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (c, a1, a2) => HomePage(),
+                        transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                        transitionDuration: Duration(milliseconds: 1300),
+                      ),
+                    );
                       
                     },
                     icon: Icon(Icons.arrow_back_ios),color: Colors.white,),
@@ -249,14 +260,10 @@ class _AboutPageState extends State<AboutPage> {
                               primary:Color(0xff5EDFFF),
                             ),
                             onPressed: (){
-                              Navigator.pushReplacement(
-                                context,
-                                PageRouteBuilder(
-                                  pageBuilder: (c, a1, a2) => LoginPage(),
-                                  transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
-                                  transitionDuration: Duration(milliseconds: 1500),
-                                ),
-                              );
+                              videoOn = !videoOn;
+                              this.setState(() {
+
+                              });
                             },
                             child: Text(
                                 'Start',
@@ -276,5 +283,71 @@ class _AboutPageState extends State<AboutPage> {
         ),
       ),
     );
+  }
+
+}
+
+class VideoApp extends StatefulWidget {
+  @override
+  _VideoAppState createState() => _VideoAppState();
+}
+
+class VideoPlayerState extends StatefulWidget {
+  @override
+  _VideoAppState createState() => _VideoAppState();
+}
+
+class _VideoAppState extends State<VideoApp> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(
+        'https://cdn.videvo.net/videvo_files/video/free/2019-03/large_watermarked/181015_Extra_DanangDrone_004_preview.mp4')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Video Demo',
+      home: Scaffold(
+        body: Container(
+          height: 370,
+          child: AspectRatio(
+            aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+          )
+        ),
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(left: 40,top: 50),
+          child: Center(
+            child: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  _controller.value.isPlaying
+                      ? _controller.pause()
+                      : _controller.play();
+                });
+              },
+              backgroundColor: Colors.white.withOpacity(0.15),
+              child: Icon(
+                _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }
