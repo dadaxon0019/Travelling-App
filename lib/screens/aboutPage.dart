@@ -13,7 +13,14 @@ class AboutPage extends StatefulWidget {
 
 class _AboutPageState extends State<AboutPage> {
 
- bool videoOn = false;
+ bool videoOn = true;
+ bool starOnMain = false;
+ bool starOn1 = false;
+ bool starOn2 = false;
+ bool starOn3 = false;
+ bool starOn4 = false;
+ bool starOn5 = false;
+ num schet = 4.0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +34,10 @@ class _AboutPageState extends State<AboutPage> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 370,
+                  height: videoOn ? 370 : 495,
                   child: videoOn ? Image(image: AssetImage('assets/about_img_1.png'),fit: BoxFit.cover,):
                   VideoApp()),
-                Padding(
+                videoOn ? Padding(
                   padding: const EdgeInsets.only(top: 58.0),
                   child: IconButton(
                     onPressed: (){Navigator.pushReplacement(
@@ -41,10 +48,10 @@ class _AboutPageState extends State<AboutPage> {
                         transitionDuration: Duration(milliseconds: 1300),
                       ),
                     );
-                      
+
                     },
                     icon: Icon(Icons.arrow_back_ios),color: Colors.white,),
-                ),
+                ): Row(),
                 Positioned(
                   bottom: 16,
                   right: 16,
@@ -69,7 +76,7 @@ class _AboutPageState extends State<AboutPage> {
                         Row(
                           children: [
                             Text(
-                              '4.7',
+                              '$schet',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize:20,
@@ -78,8 +85,16 @@ class _AboutPageState extends State<AboutPage> {
                             ),
                             SizedBox(width: 10,),
                             InkWell(
-                                onTap: (){},
-                                child:  Icon(Icons.star,color: Color(0xffE58F3F),size: 28,)
+                                onTap: (){
+
+                                  starOnMain = !starOnMain;
+                                  print(starOnMain);
+                                  this.setState(() {
+                                    starOnMain==true ? schet =schet + 0.5:schet =schet -0.5;
+                                  });
+                                },
+                                child:  starOnMain ? Icon(Icons.star,color: Color(0xffE58F3F),size: 28,) :
+                                Icon(Icons.star_border,color: Color(0xffE58F3F),size: 28,)
                             )
                 ]
                         )
@@ -166,7 +181,69 @@ class _AboutPageState extends State<AboutPage> {
                     ],
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
-                  SizedBox(height: 52,),
+                  SizedBox(height: 45,),
+                  videoOn ? SizedBox(height: 4,)
+                      :Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InkWell(
+                          onTap: (){
+                            starOn1 = !starOn1;
+                            this.setState(() {
+                              starOn1==true ? schet =schet +0.5:schet =schet -0.5;
+                            });
+                          },
+                          child:starOn1 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 28,) :
+                          Icon(Icons.star_border,color: Color(0xffE58F3F),size: 28,)
+                      ),
+                      InkWell(
+                          onTap: (){
+                            starOn2 = !starOn2;
+                            print(starOn2);
+                            this.setState(() {
+                              starOn2==true ? schet =schet + 0.5:schet =schet -0.5;
+                            });
+                          },
+                          child:starOn2 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 28,) :
+                          Icon(Icons.star_border,color: Color(0xffE58F3F),size: 28,)
+                      ),
+                      InkWell(
+                          onTap: (){
+                            starOn3 = !starOn3;
+                            print(starOn3);
+                            this.setState(() {
+                              starOn3==true ? schet =schet + 0.5:schet =schet -0.5;
+
+                            });
+                          },
+                          child:starOn3 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 28,) :
+                          Icon(Icons.star_border,color: Color(0xffE58F3F),size: 28,)
+                      ),
+                      InkWell(
+                          onTap: (){
+                            starOn4 = !starOn4;
+                            print(starOn4);
+                            this.setState(() {
+                              starOn4==true ? schet =schet + 0.5:schet =schet -0.5;
+                            });
+                          },
+                          child:starOn4 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 28,) :
+                          Icon(Icons.star_border,color: Color(0xffE58F3F),size: 28,)
+                      ),
+                      InkWell(
+                          onTap: (){
+                            starOn5 = !starOn5;
+                            print(starOn5);
+                            this.setState(() {
+                              starOn5==true ? schet =schet + 0.5:schet =schet -0.5;
+                            });
+                          },
+                          child:starOn5 ? Icon(Icons.star,color: Color(0xffE58F3F),size: 28,) :
+                          Icon(Icons.star_border,color: Color(0xffE58F3F),size: 28,)
+                      ),
+                    ],
+                  ) ,
+                  videoOn ?
                   Container(
                     width: double.infinity,
                     child: Column(
@@ -181,7 +258,7 @@ class _AboutPageState extends State<AboutPage> {
                         ),
                         SizedBox(height: 8,),
                         Text(
-                          'Mount Bromo, is an active volcano and part of the Tengger massif, in East Java, Indonesia. At 2,329 meters it is not the highest peak of the massif, but is the best known... Read More',
+                          'Mount Bromo, is an active volcano and is an active volcano and part of the Tengger massif in East Java, Indonesia. At 2,329 meters it is not the highest peak of the massif, but is the best known... Read More',
                           style: TextStyle(
                             letterSpacing: 0.8,
                             height: 1.7,
@@ -192,8 +269,8 @@ class _AboutPageState extends State<AboutPage> {
                         )
                       ],
                     ),
-                  ),
-                  SizedBox(height: 75,),
+                  ) : Container(),
+                  SizedBox(height: 40,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -266,7 +343,7 @@ class _AboutPageState extends State<AboutPage> {
                               });
                             },
                             child: Text(
-                                'Start',
+                               videoOn ?  'Play Video' : 'Description',
                                 style:TextStyle(
                                     fontSize: 14,
                                     color: Color(0xff031F2B)
@@ -291,24 +368,26 @@ class VideoApp extends StatefulWidget {
   @override
   _VideoAppState createState() => _VideoAppState();
 }
-
-class VideoPlayerState extends StatefulWidget {
-  @override
-  _VideoAppState createState() => _VideoAppState();
-}
-
 class _VideoAppState extends State<VideoApp> {
   late VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-        'https://cdn.videvo.net/videvo_files/video/free/2019-03/large_watermarked/181015_Extra_DanangDrone_004_preview.mp4')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
+    _controller = VideoPlayerController.asset('assets/videos/video1.mp4');
+
+    _controller.addListener(() {
+      setState(() {});
+    });
+    _controller.setLooping(true);
+    _controller.initialize().then((_) => setState(() {}));
+    _controller.play();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -317,37 +396,63 @@ class _VideoAppState extends State<VideoApp> {
       title: 'Video Demo',
       home: Scaffold(
         body: Container(
-          height: 370,
+          width: double.infinity,
+          height: 495,
           child: AspectRatio(
             aspectRatio: _controller.value.aspectRatio,
-            child: VideoPlayer(_controller),
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                VideoPlayer(_controller),
+                _ControlsOverlay(controller: _controller),
+                VideoProgressIndicator(_controller, allowScrubbing: true,colors: VideoProgressColors(playedColor: Colors.black38),),
+              ],
+            ),
           )
         ),
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(left: 40,top: 50),
-          child: Center(
-            child: FloatingActionButton(
-              onPressed: () {
-                setState(() {
-                  _controller.value.isPlaying
-                      ? _controller.pause()
-                      : _controller.play();
-                });
-              },
-              backgroundColor: Colors.white.withOpacity(0.15),
+
+    )
+      )
+    );
+  }
+}
+
+class _ControlsOverlay extends StatelessWidget {
+  const _ControlsOverlay({Key? key, required this.controller})
+      : super(key: key);
+
+  final VideoPlayerController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 50),
+          reverseDuration: const Duration(milliseconds: 200),
+          child: controller.value.isPlaying
+              ? const SizedBox.shrink()
+              : Container(
+            color: Colors.black26,
+            child: const Center(
               child: Icon(
-                _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                Icons.play_arrow,
+                color: Colors.white,
+                size: 100.0,
+                semanticLabel: 'Play',
               ),
             ),
           ),
         ),
-      ),
-    );
-  }
+        GestureDetector(
+          onTap: () {
+            controller.value.isPlaying ? controller.pause() : controller.play();
+          },
+        ),
 
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
+      ],
+    );
   }
 }
