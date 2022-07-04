@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travelling_app/screens/homePage.dart';
 import 'package:travelling_app/screens/loginPage.dart';
 import 'package:video_player/video_player.dart';
+import 'package:travelling_app/widgets/imagesSlider.dart';
 
 
 class AboutPage extends StatefulWidget {

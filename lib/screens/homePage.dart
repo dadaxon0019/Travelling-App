@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_app/json/dsa.dart';
 import 'package:travelling_app/screens/aboutPage.dart';
 import 'package:travelling_app/widgets/imagesSlider.dart';
 import 'package:travelling_app/widgets/inputWidget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travelling_app/widgets/slider.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,10 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  final List<String> namesTrips = ['Sea Diving','Beach Adventure','Uzbekistan',];
-  final List<String> descriptionTrips = ['11 km boat','51 km away','1444km away',];
-  final List<String> imgUrl = ['assets/images_slider_1.png','assets/images_slider_2.png','assets/images_slider_1.png'];
 
 
   final jsonString = {

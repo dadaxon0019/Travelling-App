@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:travelling_app/screens/aboutPage.dart';
 
 class ImageSLider extends StatelessWidget {
-
   final String nameTrip;
   final String description;
   final String imgUrl;
 
-  const ImageSLider({super.key, required this.nameTrip, required this.description, required this.imgUrl});
+  const ImageSLider({required this.nameTrip, required this.description, required this.imgUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +64,14 @@ class ImageSLider extends StatelessWidget {
             color: Colors.transparent,
             child: InkWell(
               onTap: (){
+                Navigator.pushReplacement(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (c, a1, a2) => AboutPage(),
+                    transitionsBuilder: (c, anim, a2, child) => FadeTransition(opacity: anim, child: child),
+                    transitionDuration: Duration(milliseconds: 1500),
+                  ),
+                );
               },
             ),
           )
