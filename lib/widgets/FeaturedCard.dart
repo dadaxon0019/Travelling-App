@@ -6,7 +6,7 @@ class FeaturedCard extends StatelessWidget {
   String nameCard;
   String aboutCard;
   String imgCard;
-  int raitingCard;
+  String raitingCard;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,16 @@ class FeaturedCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(10)
           ),
           width: double.infinity,
-          height: 133,
+          height: 143,
           child: Image(
             image: AssetImage(imgCard),fit: BoxFit.cover,
           ),
         ),
         Container(
-          height: 133,
+          height: 143,
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.white.withOpacity(0.4)),
               gradient: LinearGradient(
                   colors: [
                     Colors.black.withOpacity(0.5),
@@ -51,7 +53,7 @@ class FeaturedCard extends StatelessWidget {
                       nameCard,
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize:13,
+                          fontSize:17,
                           fontWeight: FontWeight.w600
                       ),
                     ),
@@ -60,7 +62,7 @@ class FeaturedCard extends StatelessWidget {
                       aboutCard,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize:11,
+                        fontSize:14,
                       ),
                     ),
                   ],

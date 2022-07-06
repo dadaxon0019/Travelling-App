@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelling_app/json/FeaturedCardInfo.dart';
 import 'package:travelling_app/json/Trips.dart';
-import 'package:travelling_app/screens/aboutPage.dart';
 import 'package:travelling_app/widgets/FeaturedCard.dart';
 import 'package:travelling_app/widgets/imagesSlider.dart';
 import 'package:travelling_app/widgets/inputWidget.dart';
@@ -73,15 +72,17 @@ class _HomePageState extends State<HomePage> {
                 ),
                Container(
                  height: 35,
-                 child: ListView(
-                   scrollDirection: Axis.horizontal,
-                   children:[ Row(
-                     crossAxisAlignment: CrossAxisAlignment.start,
-                     children: [ ListItem(),
-                       ListItem(),ListItem(),
-                       ListItem(),ListItem(),
-                       ListItem()],
-                   ),]
+                 child: Container(
+                   child: ListView.builder(
+                       itemBuilder: (BuildContext context,int index){
+                     return ListItem(
+                       nameTrips: sliderTitles[index],
+                     );
+                    },
+                     itemCount: sliderTitles.length,
+                     scrollDirection: Axis.horizontal,
+
+                   ),
                  ),
                ),
                 SizedBox(height: 32,),
@@ -128,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(height: 16,),
                 Container(
-                  height: nameCard.length * 143,
+                  height: nameCard.length * 156,
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: nameCard.length,

@@ -1,31 +1,31 @@
 
 final List<String> nameCard = [
-  'Sea Diving',
-  'Beach Adventure',
-  'Uzbekistan',
-  'Uzbekistan',
-  'Uzbekistan',
+  'Rome',
+  'Dubai',
+ /* 'Japan',
+  'Greece',
+  'Paris',*/
 ];
 final List<String> aboutCard = [
-  '11 km boat',
-  '51 km away',
-  '1444km away',
-  '1444km away',
-  'Uzbekistan',
+  '11km boat',
+  '51km away',
+/*'1444km away',
+  '2444km away',
+  '544km away',*/
 ];
 final List<String> imgCard = [
-  'assets/images_slider_4.png',
-  'assets/images_slider_4.png',
-  'assets/images_slider_4.png',
-  'assets/images_slider_4.png',
-  'assets/images_slider_4.png',
+  'assets/rome.jpg',
+  'assets/dubai.jpg',
+ /* 'assets/japan.jpg',
+  'assets/greece.jpg',
+  'assets/paris.jpg',*/
 ];
-final List<int> raitingCard = [
-  1,
-  2,
-  3,
-  4,
-  5
+final List<String>raitingCard = [
+  '5.4',
+  '6.5',
+  /*'3.5',
+  '5.5',
+  '2.3'*/
 ];
 
 

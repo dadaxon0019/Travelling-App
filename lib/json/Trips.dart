@@ -1,4 +1,8 @@
 
+final List<String> sliderTitles = ['Popular','new','favorite'];
+
+
+
 final List<String> namesTrips = [
   'Sea Diving',
   'Beach Adventure',
@@ -17,5 +21,6 @@ final List<String> imgUrl = [
   'assets/images_slider_1.png',
   'assets/images_slider_2.png',
 ];
+
 
 
