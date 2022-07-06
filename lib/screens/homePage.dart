@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+    late bool clickSlider = clickSlider;
 
   final jsonString = {
     "name": "John Smith",
@@ -72,80 +73,83 @@ class _HomePageState extends State<HomePage> {
                 ),
                Container(
                  height: 35,
-                 child: Container(
-                   child: ListView.builder(
-                       itemBuilder: (BuildContext context,int index){
-                     return ListItem(
-                       nameTrips: sliderTitles[index],
-                     );
-                    },
-                     itemCount: sliderTitles.length,
-                     scrollDirection: Axis.horizontal,
+                 child: ListView.builder(
+                     itemBuilder: (BuildContext context,int index){
+                   return ListItem(
+                   );
+                  },
+                   itemCount: sliderTitles.length,
+                   scrollDirection: Axis.horizontal,
 
-                   ),
                  ),
                ),
                 SizedBox(height: 32,),
-                Row(
-                  children: [
-                    Text(
-                      'Popular Experiences',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        letterSpacing: 0.6
+              Container(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Popular Experiences',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 0.6
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16,),
-                Container(
-                  height: 178,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: namesTrips.length,
-                    itemBuilder: (BuildContext context,int index){
-                      return ImageSLider(
-                        nameTrip: namesTrips[index],
-                        description: descriptionTrips[index],
-                        imgUrl:  imgUrl[index],
-                      );
-                    },
-                  ),
-                ),
-                SizedBox(height: 16,),
-                Row(
-                  children: [
-                    Text(
-                      'Featured',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16,),
-                Container(
-                  height: nameCard.length * 156,
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: nameCard.length,
-                    itemBuilder: (BuildContext context,int index){
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        child: FeaturedCard(
-                          nameCard: nameCard[index],
-                          aboutCard: aboutCard[index],
-                          imgCard:  imgCard[index],
-                          raitingCard: raitingCard[index],
+                      SizedBox(height: 16,),
+                      Container(
+                        height: 178,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: namesTrips.length,
+                          itemBuilder: (BuildContext context,int index){
+                            return ImageSLider(
+                              nameTrip: namesTrips[index],
+                              description: descriptionTrips[index],
+                              imgUrl:  imgUrl[index],
+                            );
+                          },
                         ),
-                      );
-                    },
+                      ),
+                      SizedBox(height: 16,),
+                      Row(
+                        children: [
+                          Text(
+                            'Featured',
+                            style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 16,),
+                      Container(
+                        height: nameCard.length * 156,
+                        child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: nameCard.length,
+                          itemBuilder: (BuildContext context,int index){
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 15),
+                              child: FeaturedCard(
+                                nameCard: nameCard[index],
+                                aboutCard: aboutCard[index],
+                                imgCard:  imgCard[index],
+                                raitingCard: raitingCard[index],
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                )
               ],
             ),
           ),
