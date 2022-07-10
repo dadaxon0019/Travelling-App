@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travelling_app/json/FeaturedCardInfo.dart';
 import 'package:travelling_app/json/Trips.dart';
+
 import 'package:travelling_app/widgets/FeaturedCard.dart';
 import 'package:travelling_app/widgets/imagesSlider.dart';
 import 'package:travelling_app/widgets/inputWidget.dart';
