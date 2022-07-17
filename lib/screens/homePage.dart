@@ -15,7 +15,9 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
+
+
   late bool clickSlider = clickSlider;
 
   final jsonString = {"name": "John Smith", "email": "john@example.com"};
@@ -24,6 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       backgroundColor: Color(0xff031F2B),
       body: ListView(
@@ -69,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
-                Container(
+                /*Container(
                   height: 35,
                   child: ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
@@ -77,6 +80,24 @@ class _HomePageState extends State<HomePage> {
                     },
                     itemCount: sliderTitles.length,
                     scrollDirection: Axis.horizontal,
+                  ),
+                ),*/
+                Container(
+                  child: TabBar(
+                    tabs: [
+                      Tab(text: 'Places',),
+                      Tab(text: 'Inspiration',),
+                      Tab(text: 'Emotions',)
+                    ],
+                  ),
+                ),
+                Container(
+                  child: TabBarView(
+                    children: [
+                      Text('hi'),
+                      Text('There'),
+                      Text('Bye')
+                    ],
                   ),
                 ),
                 SizedBox(
